@@ -82,15 +82,41 @@ echo "Welcome to User Registration Problem"
 
 #Use Case 4 (Validating Mobile Number)
 
-read -p "Enter Mobile Number (Format:- xx xxxxxxxxxx): " phone_number
+#read -p "Enter Mobile Number (Format:- xx xxxxxxxxxx): " phone_number
+#
+##(Working without country code)pattern="(^[7-9]{1})[0-9]{9}$"
+#
+#phone_number_pattern="((^[0-9]{2,3})[' '](([7-9]{1})[0-9]{9}))$"
+#
+#if [[ $phone_number =~ $phone_number_pattern ]]
+#then
+#       echo "Entered Phone number is valid"
+#else
+#       echo "Entered Phone number is not valid"
+#fi
 
-#(Working without country code)pattern="(^[7-9]{1})[0-9]{9}$"
 
-phone_number_pattern="((^[0-9]{2,3})[' '](([7-9]{1})[0-9]{9}))$"
 
-if [[ $phone_number =~ $phone_number_pattern ]]
+
+
+
+
+#Use Case 5 (Validating that Entered Password contains minimum 8 characters)
+
+#read -p "Enter the password: " password
+
+echo "Enter password: "
+read -s password
+
+echo "Entered Password: " $password
+
+password_rule1_pattern="^[a-zA-Z0-9#@_.-]{8,}$"
+
+echo "             "
+
+if [[ $password =~ $password_rule1_pattern ]]
 then
-       echo "Entered Phone number is valid"
+       echo "Entered Password is valid"
 else
-       echo "Entered Phone number is not valid"
+       echo "Entered Password is not valid"
 fi
