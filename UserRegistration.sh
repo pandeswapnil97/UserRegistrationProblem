@@ -159,33 +159,74 @@ echo "Welcome to User Registration Problem"
 
 #Use Case 7 (Validating that Entered Password contains minimum 8 characters, contains atleast 1 UPPERCASE character and also contains 1 numeric number)
 
-echo "            "
+#echo "            "
+#
+#read -p "Enter the password: " password
+#
+##echo "Enter password: "
+##read -s password
+##echo "Password: "$password
+#
+##password_rule3_pattern="(^[[:upper:]]{1})([0-9]{1})[a-zA-Z0-9#@_.-]{6,}$"
+#
+#password_count=${#password}
+#
+#echo "            "
+#
+#if [ $password_count -ge 8 ]
+#then
+#       if [[ $password == *[[:upper:]]* ]]
+#       then
+#                       if [[ $password == *[0-9]* ]]
+#                       then
+#                               echo "Entered password is Valid"
+#                       else
+#                               echo "Entered Password contains minimum 8 characters, contains atleast 1 UPPERCASE characters but does not contains atleast 1 numeric number."
+#                       fi
+#       else
+#                       echo "Entered Password contains minimum 8 characters but does not contain any UPPERCASE character"
+#       fi
+#else
+#        echo "Entered Password does not contain minimum 8 characters"
+#fi
+
+
+
+
+
+
+
+
+
+#Use Case 8 (Validating that Entered Password contains minimum 8 characters, contains atleast 1 UPPERCASE character, contains 1 numeric number and also contains exactly 1 special character)
 
 read -p "Enter the password: " password
 
-#echo "Enter password: "
-#read -s password
-#echo "Password: "$password
-
-#password_rule3_pattern="(^[[:upper:]]{1})([0-9]{1})[a-zA-Z0-9#@_.-]{6,}$"
+#pattern_rule4="[@#$%]{1}"
 
 password_count=${#password}
 
-echo "            "
+number_special_characters=$(($(tr -d '[[:alnum:]]' <<< $password | wc -m)-1))
 
 if [ $password_count -ge 8 ]
 then
-       if [[ $password == *[[:upper:]]* ]]
-       then
-                       if [[ $password == *[0-9]* ]]
+        if [[ $password == *[[:upper:]]* ]]
+        then
+                if [[ $password == *[0-9]* ]]
+                then
+                       if [ $number_special_characters -eq 1 ]
                        then
-                               echo "Entered password is Valid"
+                               echo "Entered Password is valid"
                        else
-                               echo "Entered Password contains minimum 8 characters, contains atleast 1 UPPERCASE characters but does not contains atleast 1 numeric number."
+                               echo "Entered Password contains minimum 8 characters, contains any UPPERCASE character, contains atleast 1 numeric number but does not contain exactly 1 special character"
                        fi
+               else
+                       echo "Entered Password contains minimum 8 characters, contain any UPPERCASE character but does not contain atleast 1 numeric number"
+               fi
        else
-                       echo "Entered Password contains minimum 8 characters but does not contain any UPPERCASE character"
+               echo "Entered Password contains minimum 8 characters but does not contain any UPPERCASE character"
        fi
 else
-        echo "Entered Password does not contain minimum 8 characters"
+       echo "Entered Password does not contain minimum 8 characters"
 fi
+
