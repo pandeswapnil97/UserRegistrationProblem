@@ -8,7 +8,7 @@ echo "Welcome to User Registration Problem"
 
 read -p "Enter First Name: " first_name
 
-first_name_pattern="(^[[:upper:]]{1,})|([[:lower:]]{1,})$"
+first_name_pattern="(^[[:upper:]]{1,})([[:lower:]]{1,})$"
 
 first_name_count=${#first_name}
 
