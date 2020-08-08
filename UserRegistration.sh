@@ -229,4 +229,3 @@ then
 else
        echo "Entered Password does not contain minimum 8 characters"
 fi
-
