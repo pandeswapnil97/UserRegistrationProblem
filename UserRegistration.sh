@@ -60,15 +60,37 @@ echo "Welcome to User Registration Problem"
 
 #Use Case 3 (Validating Entered Email Address)
 
-read -p "Enter Email Address: " email_address
+#read -p "Enter Email Address: " email_address
+#
+#email_address_pattern="(^[a-zA-Z0-9]+)([.]{0,})([a-zA-Z0-9]+)([@]{1})([a-zA-Z]+)([.]{0,1})([a-zA-Z]{0,4})([.]{0,1})([a-z]{0,2})"
+#
+##email_address_pattern="^([a-zA-Z0-9]+)([.]{0,1})([a-zA-Z0-9]{0,})@([a-zA-Z0-9]+)([.]{0,})([a-zA-Z]+)([.]{0,1})({a-zA-Z}{0,})$"
+#
+#if [[ $email_address =~ $email_address_pattern ]]
+#then
+#       echo "Email address is valid"
+#else
+#       echo "Email address is not valid"
+#fi
 
-email_address_pattern="(^[a-zA-Z0-9]+)([.]{0,})([a-zA-Z0-9]+)([@]{1})([a-zA-Z]+)([.]{0,1})([a-zA-Z]{0,4})([.]{0,1})([a-z]{0,2})"
 
-#email_address_pattern="^([a-zA-Z0-9]+)([.]{0,1})([a-zA-Z0-9]{0,})@([a-zA-Z0-9]+)([.]{0,})([a-zA-Z]+)([.]{0,1})({a-zA-Z}{0,})$"
 
-if [[ $email_address =~ $email_address_pattern ]]
+
+
+
+
+
+#Use Case 4 (Validating Mobile Number)
+
+read -p "Enter Mobile Number (Format:- xx xxxxxxxxxx): " phone_number
+
+#(Working without country code)pattern="(^[7-9]{1})[0-9]{9}$"
+
+phone_number_pattern="((^[0-9]{2,3})[' '](([7-9]{1})[0-9]{9}))$"
+
+if [[ $phone_number =~ $phone_number_pattern ]]
 then
-       echo "Email address is valid"
+       echo "Entered Phone number is valid"
 else
-       echo "Email address is not valid"
+       echo "Entered Phone number is not valid"
 fi
