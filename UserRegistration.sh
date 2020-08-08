@@ -103,20 +103,50 @@ echo "Welcome to User Registration Problem"
 
 #Use Case 5 (Validating that Entered Password contains minimum 8 characters)
 
-#read -p "Enter the password: " password
+##read -p "Enter the password: " password
+#
+#echo "Enter password: "
+#read -s password
+#
+#echo "Entered Password: " $password
+#
+#password_rule1_pattern="^[a-zA-Z0-9#@_.-]{8,}$"
+#
+#echo "             "
+#
+#if [[ $password =~ $password_rule1_pattern ]]
+#then
+#       echo "Entered Password is valid"
+#else
+#       echo "Entered Password is not valid"
+#fi
 
-echo "Enter password: "
-read -s password
 
-echo "Entered Password: " $password
 
-password_rule1_pattern="^[a-zA-Z0-9#@_.-]{8,}$"
 
-echo "             "
 
-if [[ $password =~ $password_rule1_pattern ]]
+
+
+
+#Use Case 6 (Validating that Entered Password contains minimum 8 characters and also contain atleast 1 UPPERCASE character)
+
+read -p "Enter the password: " password
+
+#echo "Enter password: "
+#read -s password
+#echo "Password: "$password
+
+password_count=${#password}
+
+if [ $password_count -ge 8 ]
 then
-       echo "Entered Password is valid"
+       if [[ $password == *[[:upper:]]* ]]
+       then
+                       echo "Entered Password is valid"
+       else
+               echo "Entered Password contains minimum 8 characters but does not contain atleast 1 UPPERCASE character"
+       fi
 else
-       echo "Entered Password is not valid"
+               echo "Entered Password does not contain minimum 8 characters"
 fi
+
