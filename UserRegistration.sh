@@ -200,32 +200,62 @@ echo "Welcome to User Registration Problem"
 
 #Use Case 8 (Validating that Entered Password contains minimum 8 characters, contains atleast 1 UPPERCASE character, contains 1 numeric number and also contains exactly 1 special character)
 
-read -p "Enter the password: " password
+#read -p "Enter the password: " password
+#
+##pattern_rule4="[@#$%]{1}"
+#
+#password_count=${#password}
+#
+#number_special_characters=$(($(tr -d '[[:alnum:]]' <<< $password | wc -m)-1))
+#
+#if [ $password_count -ge 8 ]
+#then
+#        if [[ $password == *[[:upper:]]* ]]
+#        then
+#                if [[ $password == *[0-9]* ]]
+#                then
+#                       if [ $number_special_characters -eq 1 ]
+#                       then
+#                               echo "Entered Password is valid"
+#                       else
+#                               echo "Entered Password contains minimum 8 characters, contains any UPPERCASE character, contains atleast 1 numeric number but does not contain exactly 1 special character"
+#                       fi
+#               else
+#                       echo "Entered Password contains minimum 8 characters, contain any UPPERCASE character but does not contain atleast 1 numeric number"
+#               fi
+#       else
+#               echo "Entered Password contains minimum 8 characters but does not contain any UPPERCASE character"
+#       fi
+#else
+#       echo "Entered Password does not contain minimum 8 characters"
+#fi
 
-#pattern_rule4="[@#$%]{1}"
 
-password_count=${#password}
 
-number_special_characters=$(($(tr -d '[[:alnum:]]' <<< $password | wc -m)-1))
 
-if [ $password_count -ge 8 ]
+
+
+
+
+
+
+#Use Case 9 (Validating all email samples provided)
+
+read -p "Enter Email address: " email_address
+
+#WORKING FOR INVALID EMAILS + VALID EMAILS (EXCEPT 3,6,8)
+#pattern="^[][a-zA-Z0-9+-]+@[a-zA-Z0-9]+[.-]{0,}\.[a-zA-Z,]{2,}$"
+
+
+#WORKING FOR VALID EMAILS
+#pattern="^[a-zA-Z0-9.+-]+@[a-zA-Z0-9.]+\.[a-zA-Z,]{1,4}$"
+
+
+email_address_pattern="^([a-zA-Z0-9]+)([.+-]{0,1})([a-zA-Z0-9]{1,})@([a-zA-Z0-9]+)[.]{1}([a-zA-Z]{2,})[.]{0,1}([a-zA-Z',']{0,4})$"
+
+if [[ $email_address =~ $email_address_pattern ]]
 then
-        if [[ $password == *[[:upper:]]* ]]
-        then
-                if [[ $password == *[0-9]* ]]
-                then
-                       if [ $number_special_characters -eq 1 ]
-                       then
-                               echo "Entered Password is valid"
-                       else
-                               echo "Entered Password contains minimum 8 characters, contains any UPPERCASE character, contains atleast 1 numeric number but does not contain exactly 1 special character"
-                       fi
-               else
-                       echo "Entered Password contains minimum 8 characters, contain any UPPERCASE character but does not contain atleast 1 numeric number"
-               fi
-       else
-               echo "Entered Password contains minimum 8 characters but does not contain any UPPERCASE character"
-       fi
+       echo "Email address is valid"
 else
-       echo "Entered Password does not contain minimum 8 characters"
+       echo "Email address is not valid"
 fi
