@@ -4,7 +4,7 @@ echo "Welcome to User Registration Problem"
 
 
 
-#Use Case 1 (Validating First Name) (WORKING)
+#Use Case 1 (Validating First Name)
 
 read -p "Enter First Name: " first_name
 
