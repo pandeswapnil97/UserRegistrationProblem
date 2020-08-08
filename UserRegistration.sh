@@ -130,23 +130,62 @@ echo "Welcome to User Registration Problem"
 
 #Use Case 6 (Validating that Entered Password contains minimum 8 characters and also contain atleast 1 UPPERCASE character)
 
+#read -p "Enter the password: " password
+#
+##echo "Enter password: "
+##read -s password
+##echo "Password: "$password
+#
+#password_count=${#password}
+#
+#if [ $password_count -ge 8 ]
+#then
+#       if [[ $password == *[[:upper:]]* ]]
+#       then
+#                       echo "Entered Password is valid"
+#       else
+#               echo "Entered Password contains minimum 8 characters but does not contain atleast 1 UPPERCASE character"
+#       fi
+#else
+#               echo "Entered Password does not contain minimum 8 characters"
+#fi
+
+
+
+
+
+
+
+
+#Use Case 7 (Validating that Entered Password contains minimum 8 characters, contains atleast 1 UPPERCASE character and also contains 1 numeric number)
+
+echo "            "
+
 read -p "Enter the password: " password
 
 #echo "Enter password: "
 #read -s password
 #echo "Password: "$password
 
+#password_rule3_pattern="(^[[:upper:]]{1})([0-9]{1})[a-zA-Z0-9#@_.-]{6,}$"
+
 password_count=${#password}
+
+echo "            "
 
 if [ $password_count -ge 8 ]
 then
        if [[ $password == *[[:upper:]]* ]]
        then
-                       echo "Entered Password is valid"
+                       if [[ $password == *[0-9]* ]]
+                       then
+                               echo "Entered password is Valid"
+                       else
+                               echo "Entered Password contains minimum 8 characters, contains atleast 1 UPPERCASE characters but does not contains atleast 1 numeric number."
+                       fi
        else
-               echo "Entered Password contains minimum 8 characters but does not contain atleast 1 UPPERCASE character"
+                       echo "Entered Password contains minimum 8 characters but does not contain any UPPERCASE character"
        fi
 else
-               echo "Entered Password does not contain minimum 8 characters"
+        echo "Entered Password does not contain minimum 8 characters"
 fi
-
